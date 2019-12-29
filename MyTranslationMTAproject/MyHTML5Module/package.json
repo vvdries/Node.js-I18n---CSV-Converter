@@ -1,0 +1,11 @@
+{
+  "name": "MyHTML5Module",
+  "description": "",
+  "devDependencies": {
+    "@sap/grunt-sapui5-bestpractice-build": "1.4.2",
+    "@sap/grunt-sapui5-bestpractice-test": "2.0.1"
+  },
+  "scripts": {
+    "test": "grunt unit_and_integration_tests"
+  }
+}

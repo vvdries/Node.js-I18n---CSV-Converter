@@ -1,0 +1,20 @@
+{
+  "name": "i18ncsvconverterapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "createCsv.js",
+  "scripts": {
+    "createCsv": "node createCsv.js",
+    "createI18n": "node createI18n.js"
+  },
+  "author": "",
+  
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "jsonexport": "^2.4.1",
+    "properties-file": "^1.0.0",
+    "properties-to-json": "^0.1.4",
+    "recursive-readdir-async": "^1.1.6"
+  }
+}

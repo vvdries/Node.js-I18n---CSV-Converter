@@ -1,0 +1,6 @@
+---
+applications:
+- name: i18nCsvConverterApp
+  host: i18nCsvConverter
+  path: i18nCsvConverterApp
+  memory: 128M
