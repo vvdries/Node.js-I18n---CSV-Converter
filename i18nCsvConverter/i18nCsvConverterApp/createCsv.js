@@ -35,7 +35,11 @@ rra.list(filePath, options).then(function (list) {
 
         let promise = new Promise(function (resolve, reject) {
             fs.readFile(file.fullname, 'utf-8', function (err, data) {
-                resolve({ appPath: appPath, language: language, data: propertiesToJSON(data) });
+                resolve({
+                    appPath: appPath,
+                    language: language,
+                    data: propertiesToJSON(data)
+                });
             });
         });
         return promise;
@@ -48,13 +52,18 @@ rra.list(filePath, options).then(function (list) {
             Object.keys(file.data).forEach(function (key) {
                 let foundTranslation = aTranslationEntries.filter(entry => entry.key === key && entry.appName === file.appPath)[0];
                 if (foundTranslation) {
-                    foundTranslation[[file.language]] = file.data[key];
-                }
-                else {
+                    foundTranslation[[file.language]] = file.data[key].replace(/(\\[a-zA-Z0-9]{5}):*/g, function (string) {
+                        return JSON.parse('"' + string + '"')
+                    });
+                } else {
                     aTranslationEntries.push({
                         appName: file.appPath,
                         key: key,
-                        [[file.language]]: file.data[key]
+                        [
+                            [file.language]
+                        ]: file.data[key].replace(/(\\[a-zA-Z0-9]{5}):*/g, function (string) {
+                            return JSON.parse('"' + string + '"')
+                        })
                     });
                 }
             });
