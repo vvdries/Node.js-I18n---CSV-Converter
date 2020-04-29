@@ -3,7 +3,6 @@
 const csvToJson = require('csvtojson');
 const jsonToProperties = require("properties-file");
 const fs = require('fs');
-const unicodeToJsEscape = require('unicode-escape');
 
 const filePath = process.argv[2].replace(/\\/g, "/");
 const filePathOutput = process.argv[3].replace(/\\/g, "/");
